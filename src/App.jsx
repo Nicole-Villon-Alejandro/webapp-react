@@ -12,10 +12,12 @@ function App() {
     <>
       <BrowserRouter>
         
-          <Routes>
+        <Routes>
+          <Route Component={DefaultLayout}>
             <Route path="/" element={<Homepage />} />
-            <Route path="/movie" element={<Moviepage />} />
-          </Routes>
+            <Route path="/movie/:id" element={<Moviepage />} />
+          </Route>
+        </Routes>
         
       </BrowserRouter>
       
