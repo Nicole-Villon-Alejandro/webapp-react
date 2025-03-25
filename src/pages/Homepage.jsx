@@ -1,10 +1,50 @@
+import MovieCard from "../components/MovieCard";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+
 export default function Homepage() {
+    const [movies, setMovies] = useState([]);
+
+    const fetchMovies = () => {
+        console.log('fetching movies...');
+
+        axios
+        .get('http://localhost:3000/movies')
+        .then((res) => {
+          setMovies(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    const renderMovies = () => {
+        return movies.map((movie) => {
+          return (
+            <div className="col" key={movie.id}>
+              <MovieCard movie={movie} />
+            </div>
+          );
+        });
+    };
+
+    //Invocazione chiamata al caricamento del componente in pagina
+  useEffect(fetchMovies, []);
+
+
   return (
     <>
         <h1>Homepage</h1>
         <p>Welcome to the homepage!</p>
-        <p>Click on the links above to view the other pages.</p>
+        
         <p>La home, in cui mostreremo la lista dei film</p>
+        <div className="row row-cols-3">
+            {/* <BookCard/> */}
+            {renderMovies()}
+           
+            
+        </div>
     </>
     
   );
