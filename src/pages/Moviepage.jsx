@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
- import ReviewCard from "../components/ReviewCard";
+import ReviewCard from "../components/ReviewCard";
+import ReviewForm from '../components/ReviewForm';
 
 export default function Moviepage() {
   const { id } = useParams();
@@ -32,12 +33,23 @@ export default function Moviepage() {
       <h1>{movie.title}</h1>
       <img src={movie?.image} alt={movie?.title} />
       <p>Welcome to the movie page!</p>
-      <p>{movie.abstract}</p>
+    
 
       <section>
         <h2>Reviews</h2>
         {renderReviews()}
       </section>
+
+      <section>
+        <h3>Add a review</h3>
+        <ReviewForm movie_id={id} reloadReviews={fetchMovie} />
+      </section>
+
+      {/*<section>
+        {movie?.id && <ReviewForm movie_id={movie.id} reloadReviews={fetchMovie} />} 
+      </section>*/}
+
+
     </>
   );
 }
