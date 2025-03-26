@@ -3,6 +3,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Homepage from "./pages/Homepage";
 import Moviepage from "./pages/Moviepage";
+import CreateMoviePage from './pages/CreateMoviePage'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route Component={DefaultLayout}>
             <Route path="/" element={<Homepage/>} />
             <Route path="/movies/:id" element={<Moviepage/>} />
+            <Route path="/movies/create" element={<CreateMoviePage/>} />
           </Route>
         </Routes>
         
