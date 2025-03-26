@@ -35,8 +35,8 @@ export default function Homepage() {
 
   return (
     <>
-        <h1>Homepage</h1>
-        <p>Welcome to the homepage!</p>
+        <h1>Films</h1>
+        <p>Welcome to the homepage of my favorites films!</p>
         
         <p>La home, in cui mostreremo la lista dei film</p>
         <div className="row row-cols-3">
