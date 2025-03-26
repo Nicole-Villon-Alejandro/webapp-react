@@ -37,10 +37,11 @@ export default function Moviepage() {
 
       <section>
         <h2>Reviews</h2>
+        <br/>
         {renderReviews()}
       </section>
 
-      <section>
+      <section className="review-form">
         <h3>Add a review</h3>
         <ReviewForm movie_id={id} reloadReviews={fetchMovie} />
       </section>
